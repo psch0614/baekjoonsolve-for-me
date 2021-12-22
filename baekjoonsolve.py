@@ -474,5 +474,77 @@
 #     a = a.replace(i, 'a') # goal 안에 i가 포함되어있을경우 a로 문자 치환
 # print(len(a)) #a의 길이 반환
 
-# 1316 그룹단어 체커
-#add test
+# 1316 그룹단어 체커  not in 참조
+# N = int(input()) #시행횟수 N 입력
+# countN = 0 #나중에 뺄값 0으로 지정
+# for i in range(N) : #i를 N회 반복
+#     word = input() #문자열 입력
+#     sepword = [] #문자열을 나누어서 입력할곳 따로 만듬
+#     checker = [] #체커 따로 만듦
+#     for j in range(len(word)) : #j를 word의 길이만큼 반복
+#         sepword += word[j] # sepword에 word를 차례로 입력
+#     for k in range(len(sepword)) : #k를 sepword의 길이만큼 반복
+#         if sepword[k] not in checker : #sepword의 k번째 문자가 checker안에 없을경우
+#             checker += sepword[k] # checker에 sepword를 추가
+#         elif sepword[k] in checker : #sepword의 k번째 문자가 checker에 있을경우
+#             if sepword[k] == sepword[k-1] : #sepword의 k번째 문자와 k-1번째 문자가 같은경우
+#                 pass #패스
+#             else : #다른경우 즉, checker안에서 이미 한번 언급되엇고 다시 언급됨
+#                 countN +=1 #나중에 뺄값인 countN을 1증가시킨다
+#                 break #for문을 중지 시킨다
+# print(N-countN)
+
+#다시 짠것 필요없는거 제거
+# N = int(input()) #시행횟수 N 입력
+# countN = 0 #나중에 뺄값 0으로 지정
+# for i in range(N) : #i를 N회 반복
+#     word = input() #문자열 입력
+#     # sepword = [] #문자열을 나누어서 입력할곳 따로 만듬 ## 필요없는것 기존 word로도 사용가능
+#     checker = [] #체커 따로 만듦
+#     # for j in range(len(word)) : #j를 word의 길이만큼 반복 ##기존 word로 사용함으로 인하여 제거
+#     #     sepword += word[j] # sepword에 word를 차례로 입력 ##기존 word로 사용함으로 인하여 제거
+#     for k in range(len(word)) : #k를 sepword의 길이만큼 반복 ##기존 sepword에서 word로 변경
+#         if word[k] not in checker : #sepword의 k번째 문자가 checker안에 없을경우 ##기존 sepword에서 word로 변경
+#             checker += word[k] # checker에 sepword를 추가 ##기존 sepword에서 word로 변경
+#         elif word[k] in checker : #sepword의 k번째 문자가 checker에 있을경우 ##기존 sepword에서 word로 변경
+#             if word[k] == word[k-1] : #sepword의 k번째 문자와 k-1번째 문자가 같은경우 ##기존 sepword에서 word로 변경
+#                 pass #패스
+#             else : #다른경우 즉, checker안에서 이미 한번 언급되엇고 다시 언급됨
+#                 countN +=1 #나중에 뺄값인 countN을 1증가시킨다
+#                 break #for문을 중지 시킨다
+# print(N-countN)
+# #코드가 더러워서 다시씀
+# N = int(input()) #시행횟수 N 입력
+# countN = 0 #나중에 뺄값 0으로 지정
+# for i in range(N) : #i를 N회 반복
+#     word = input() #문자열 입력
+#     checker = [] #체커 따로 만듦
+#     for k in range(len(word)) : #k를 word의 길이만큼 반복
+#         if word[k] not in checker : #word의 k번째 문자가 checker안에 없을경우
+#             checker += word[k] # checker에 word를 추가
+#         elif word[k] in checker : #word의 k번째 문자가 checker에 있을경우 
+#             if word[k] == word[k-1] : #word의 k번째 문자와 k-1번째 문자가 같은경우 
+#                 pass #패스
+#             else : #다른경우 즉, checker안에서 이미 한번 언급되엇고 다시 언급됨
+#                 countN +=1 #나중에 뺄값인 countN을 1증가시킨다
+#                 break #for문을 중지 시킨다
+# print(N-countN)
+
+# 다른사람 코드
+# def group_word(s):  #group_word라는 함수 정의 s는 input받은 문자로 아래서 input으로 들어올 값
+#     l = [] # 체크할곳 내가 만든곳의 체커와 동일
+#     for i in s: # i에 s의 문자열을 처음부터 입력
+#         k = s.find(i) #k에 s의 i문자의 위치를 찾아서 넣음 숫자로 나옴
+#         if k not in l or k == l[-1]: #k가 l에 없거나 k가 l의 마지막과 다를경우(직전 추가한숫자와 같을경우) 즉 새롭게 나온것이거나 기존과 같을경우
+#             l.append(k) # l에 추가한다
+#         else: # if가 아닐경우
+#             return False # if를 종료하고 for로 탈출한다
+#     return True #for을 반복한다
+
+# t = int(input())
+# sum = 0
+# for i in range(t):
+#     if group_word(input()):
+#         sum +=1
+# print(sum)
+
