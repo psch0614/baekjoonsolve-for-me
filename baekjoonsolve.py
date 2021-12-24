@@ -563,3 +563,24 @@
 # else :
 #     print(-1)
 
+# 2292 벌집
+# room_num = int(input())-1
+# if room_num == 0 :
+#     print(1)
+# else :
+#     i = 1
+#     n = 0
+#     while room_num >= i :
+#         n += 1
+#         i += 6*n
+#         # print(f'현재 {n+1}라인 훑는중 최대값 {i}') # 검증코드
+#     print(n+1)
+# 다른방식
+room_num = int(input())
+i = 1 # i 즉 현재 위치에서의 최대값 설정. for문은 0부터 시작하며, 문제에서는 1번라인(숫자1) 도 포함하므로 1로 설정함
+for j in range(room_num) : # 라인은 항상 room_num보다 크므로 room_num으로 최대값 러프하게 설정.
+    i = i + j*6 # i 즉 현재 위치에서의 최대값 찾기
+    # print(f'검산 코드임 : {j}라인 훑는중 라인내 최대값{i}, 찾는값 {room_num}')
+    if i >= room_num : # i 즉 j번째 라인의 최대값이 room_num 보다 클경우 답을 찾은것으로 라인 j 를 반환함
+        print(j+1) #라인 j가 있는곳 또한 포함하여야 하므로 j+1 반환 
+        break # 종료를 하지 않으면 room_num까지 for문 반복하므로 break 걸어줌
