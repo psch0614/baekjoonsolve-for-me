@@ -548,3 +548,18 @@
 #         sum +=1
 # print(sum)
 
+# step 8 기본수학1
+# 1712 손익분기점
+# test1 실패 c==b zero div 실패
+# a,b,c = map(int, input().split())
+# i = (a//(c-b))
+# if i < 0 or c==b :
+#     print(-1)
+# else :
+#     print(i+1)
+# a,b,c = map(int, input().split())
+# if c > b :
+#     print(a//(c-b)+1)
+# else :
+#     print(-1)
+
