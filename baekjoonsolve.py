@@ -622,12 +622,35 @@
 #             break
 
 #다른사람이 짠 코드
-X=int(input())
-i=1
-while X>i:
-    X -= i
-    i += 1
-if i%2==0:
-    print(f"{X}/{i+1-X}")
-else:
-    print(f"{i-X+1}/{X}")
+# X=int(input())
+# i=1
+# while X>i:
+#     X -= i
+#     i += 1
+# if i%2==0:
+#     print(f"{X}/{i+1-X}")
+# else:
+#     print(f"{i-X+1}/{X}")
+
+# 2869 달팽이는 올라가고 싶다
+# import sys
+# import math
+# a,b,v = list(map(int, sys.stdin.readline().split())) #올라가는 a, 미끄러지는b, 총높이 v
+# v -= a
+# day = 1
+# if v>0 :
+#     print(day + math.ceil(v/(a-b)))
+# else :
+#     print(1)
+#math안쓰고 하기
+import sys
+a,b,v = list(map(int, sys.stdin.readline().split())) #올라가는 a, 미끄러지는b, 총높이 v
+day = 1
+if v-a >0 :
+    if (v-a)%(a-b) == 0 :
+        print(day + ((v-a)//(a-b)))
+    else :
+        print(day + ((v-a)//(a-b)) + 1)
+else :
+    print(1)
+
