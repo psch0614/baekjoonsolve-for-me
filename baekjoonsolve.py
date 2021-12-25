@@ -653,4 +653,4 @@ if v-a >0 :
         print(day + ((v-a)//(a-b)) + 1)
 else :
     print(1)
-
+    ddf
