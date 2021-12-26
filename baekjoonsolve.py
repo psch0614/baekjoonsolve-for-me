@@ -642,15 +642,28 @@
 #     print(day + math.ceil(v/(a-b)))
 # else :
 #     print(1)
-#math안쓰고 하기
-import sys
-a,b,v = list(map(int, sys.stdin.readline().split())) #올라가는 a, 미끄러지는b, 총높이 v
-day = 1
-if v-a >0 :
-    if (v-a)%(a-b) == 0 :
-        print(day + ((v-a)//(a-b)))
+# math안쓰고 하기
+# import sys
+# a,b,v = list(map(int, sys.stdin.readline().split())) #올라가는 a, 미끄러지는b, 총높이 v
+# if v-a >0 :
+#     if (v-a)%(a-b) == 0 :
+#         print(1 + ((v-a)//(a-b)))
+#     else :
+#         print(1 + ((v-a)//(a-b)) + 1)
+# else :
+#     print(1)
+
+# 10250 acm호텔
+t = int(input())
+for i in range(t) :
+    h , w, n = list(map(int, input().split()))
+    if n%h == 0 :
+        num = n//h
+        floor = h
     else :
-        print(day + ((v-a)//(a-b)) + 1)
-else :
-    print(1)
-    ddf
+        num = (n//h)+1
+        floor = n%h
+    
+    if n<h :
+        num = 1
+    print(f'{floor}{str(num).zfill(2)}')
