@@ -717,7 +717,23 @@
 #         print(v//5+2)
 
 # 10757 큰수 A+B
-import sys
+# import sys
 
-a,b = map(int, sys.stdin.readline().split())
-print(a+b)
+# a,b = map(int, sys.stdin.readline().split())
+# print(a+b)
+
+# 1011 Fly me to the Alpha Centauri # 보고 따라하며 풀긴했음 수학공식은 다시 나중에 한번더 검증해볼것
+t = int(input())
+for _ in range(t) :
+    x, y = map(int, input().split())
+    d = y-x
+    i = 0
+    while i**2 <= d :
+        i += 1
+    i -= 1
+    if i**2 == d :
+        print((2*i)-1)
+    elif ((i**2)<d) and (d<=((i**2)+i)) :
+        print(2*i)
+    elif (((i**2)+i)<d) and (d<=(i**2)+(2*i)) :
+        print((2*i)+1)
