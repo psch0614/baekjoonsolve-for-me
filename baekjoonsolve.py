@@ -654,16 +654,31 @@
 #     print(1)
 
 # 10250 acm호텔
-t = int(input())
-for i in range(t) :
-    h , w, n = list(map(int, input().split()))
-    if n%h == 0 :
-        num = n//h
-        floor = h
-    else :
-        num = (n//h)+1
-        floor = n%h
+# t = int(input())
+# for i in range(t) :
+#     h , w, n = list(map(int, input().split()))
+#     if n%h == 0 :
+#         num = n//h
+#         floor = h
+#     else :
+#         num = (n//h)+1
+#         floor = n%h
     
-    if n<h :
-        num = 1
-    print(f'{floor}{str(num).zfill(2)}')
+#     if n<h :
+#         num = 1
+#     print(f'{floor}{str(num).zfill(2)}')
+
+# 2775 부녀회장이 될테야
+t = int(input())
+for _ in range(t) :
+    k = int(input())
+    n = int(input())
+    num = 1
+    l = k+n
+    for i in range(1,l+1) :
+        num *= i
+    for i in range(1,k+2) :
+        num //= i
+    for i in range(1,n) :
+        num //= i
+    print(num)
