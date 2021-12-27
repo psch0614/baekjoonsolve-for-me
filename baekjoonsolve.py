@@ -723,17 +723,78 @@
 # print(a+b)
 
 # 1011 Fly me to the Alpha Centauri # 보고 따라하며 풀긴했음 수학공식은 다시 나중에 한번더 검증해볼것
-t = int(input())
-for _ in range(t) :
-    x, y = map(int, input().split())
-    d = y-x
-    i = 0
-    while i**2 <= d :
-        i += 1
-    i -= 1
-    if i**2 == d :
-        print((2*i)-1)
-    elif ((i**2)<d) and (d<=((i**2)+i)) :
-        print(2*i)
-    elif (((i**2)+i)<d) and (d<=(i**2)+(2*i)) :
-        print((2*i)+1)
+# t = int(input())
+# for _ in range(t) :
+#     x, y = map(int, input().split())
+#     d = y-x
+#     i = 0
+#     while i**2 <= d :
+#         i += 1
+#     i -= 1
+#     if i**2 == d :
+#         print((2*i)-1)
+#     elif ((i**2)<d) and (d<=((i**2)+i)) :
+#         print(2*i)
+#     elif (((i**2)+i)<d) and (d<=(i**2)+(2*i)) :
+#         print((2*i)+1)
+
+# step9 기본수학2
+# 1978 소수찾기
+# import sys
+# N = int(input())
+# numlist = list(map(int, sys.stdin.readline().split()))
+# cnt = 0
+# for i in range(N) :
+#     # print(f'numlist중 {i}번째 숫자인 {numlist[i]} 를 판단')
+#     if numlist[i] == 1 :    
+#         # print(f'{numlist[i]}가 1이기 때문에 패스')
+#         pass
+#     if numlist[i] == 2 :
+#         cnt +=1
+#         # print(f'{numlist[i]}가 2이기 때문에 카운터 증가 현재 카운터값은 {cnt}')
+#     if numlist[i] >= 3 :
+#         # print(f'{numlist[i]}가 3이상이라 판단중')
+#         notprime = 0
+#         for j in range(2,numlist[i]) :
+#             if numlist[i]%j == 0 :
+#                 notprime += 1
+#                 # print(f'{numlist[i]}가 {j}로 나누어져 소수가 아님 카운트 증가')
+#             else :
+#                 # print(f'{numlist[i]}가 {j}로 나누어지지 않아 계속 판단')
+#                 continue
+#         if notprime == 0 :
+#             cnt += 1
+#             # print(f'{numlist[i]}가 소수라 카운터 증가 현재 카운터값은 {cnt}')
+# print(cnt)
+# #다른사람 코드
+# n=int(input())
+# num=list(map(int,input().split( )))
+# for i in num:
+#     if i==1:
+#         n-=1
+#     for j in range(2,i): # 1과 자기자신인 i를 제외한 범위 설정
+#         if i%j==0: # 한번이라도 나누어 떨어지면 소수가 아님 
+#             n-=1 #  위의 조건문에 해당 되는 경우 n을 하나씩 제거      
+#             break # 소수가 아닌 걸 체크 했으므로 break를 걸어줌
+# print(n)
+
+#내꺼 다시 써보기
+N = int(input())
+numlist = list(map(int, input().split()))
+for i in numlist :
+    print(f'{i}를 판단중')
+    if i == 1 :
+        print(f'{i}가 1이므로 소수가 아님 전체 테스트 케이스에서 1을 뺌')
+        N -= 1
+    print(f'{i}가 1이 아니므로 재 판단중')
+    for j in range(2,i) :
+        print(f'2에서부터 {i-1}까지로 {i}를 나눠볼꺼임')
+        if i%j == 0 :        
+            print(f'{i}가 {j}로 나누어졋기때문에 케이스에서 1을 빼고 멈출꺼임')
+            N -= 1
+            print(f'현재 남은 테스트 케이스는 {N}번임')
+            break
+        else :
+            print(f'{i}는 {j}나누어지지 않아 계속함')
+
+print(N)
