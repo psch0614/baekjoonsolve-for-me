@@ -668,17 +668,50 @@
 #         num = 1
 #     print(f'{floor}{str(num).zfill(2)}')
 
-# 2775 부녀회장이 될테야
-t = int(input())
-for _ in range(t) :
-    k = int(input())
-    n = int(input())
-    num = 1
-    l = k+n
-    for i in range(1,l+1) :
-        num *= i
-    for i in range(1,k+2) :
-        num //= i
-    for i in range(1,n) :
-        num //= i
-    print(num)
+# 2775 부녀회장이 될테야 #문제 자체는 이해하였지만 공식을 이해하지 못하고 따라 작성함
+# t = int(input())
+# for _ in range(t) :
+#     k = int(input())
+#     n = int(input())
+#     num = 1
+#     l = k+n
+#     for i in range(1,l+1) :
+#         num *= i
+#     for i in range(1,k+2) :
+#         num //= i
+#     for i in range(1,n) :
+#         num //= i
+#     print(num)
+
+# 2839 설탕배달
+# t = int(input())
+# all =[]
+# for i in range(1001) :
+#     for j in range(1667) :
+#         if (i*5)+(j*3) == t :
+#             all.append(i+j)
+# if len(all) == 0 :
+#     print(-1)
+# else :
+#     print(min(all))
+# 다른사람 코드 1
+x = int(input())
+count = 0
+while(x%5 !=0):
+    x-=3
+    count +=1
+if(x<0):
+    print(-1)
+else:
+    print(count + x//5)
+#다른사람코드 2
+v = int(input())
+if v ==1 or v==2 or v==4 or v==7 :
+    print(-1)
+else:
+    if v%5==0:
+        print(v//5)
+    if v%5==1 or v%5==3:
+        print(v//5+1)
+    if v%5==2 or v%5==4:
+        print(v//5+2)
