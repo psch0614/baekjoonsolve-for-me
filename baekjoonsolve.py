@@ -695,23 +695,29 @@
 # else :
 #     print(min(all))
 # 다른사람 코드 1
-x = int(input())
-count = 0
-while(x%5 !=0):
-    x-=3
-    count +=1
-if(x<0):
-    print(-1)
-else:
-    print(count + x//5)
-#다른사람코드 2
-v = int(input())
-if v ==1 or v==2 or v==4 or v==7 :
-    print(-1)
-else:
-    if v%5==0:
-        print(v//5)
-    if v%5==1 or v%5==3:
-        print(v//5+1)
-    if v%5==2 or v%5==4:
-        print(v//5+2)
+# x = int(input())
+# count = 0
+# while(x%5 !=0):
+#     x-=3
+#     count +=1
+# if(x<0):
+#     print(-1)
+# else:
+#     print(count + x//5)
+# #다른사람코드 2
+# v = int(input())
+# if v ==1 or v==2 or v==4 or v==7 :
+#     print(-1)
+# else:
+#     if v%5==0:
+#         print(v//5)
+#     if v%5==1 or v%5==3:
+#         print(v//5+1)
+#     if v%5==2 or v%5==4:
+#         print(v//5+2)
+
+# 10757 큰수 A+B
+import sys
+
+a,b = map(int, sys.stdin.readline().split())
+print(a+b)
