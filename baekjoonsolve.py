@@ -778,23 +778,51 @@
 #             break # 소수가 아닌 걸 체크 했으므로 break를 걸어줌
 # print(n)
 
-#내꺼 다시 써보기
-N = int(input())
-numlist = list(map(int, input().split()))
-for i in numlist :
-    print(f'{i}를 판단중')
-    if i == 1 :
-        print(f'{i}가 1이므로 소수가 아님 전체 테스트 케이스에서 1을 뺌')
-        N -= 1
-    print(f'{i}가 1이 아니므로 재 판단중')
-    for j in range(2,i) :
-        print(f'2에서부터 {i-1}까지로 {i}를 나눠볼꺼임')
-        if i%j == 0 :        
-            print(f'{i}가 {j}로 나누어졋기때문에 케이스에서 1을 빼고 멈출꺼임')
-            N -= 1
-            print(f'현재 남은 테스트 케이스는 {N}번임')
-            break
-        else :
-            print(f'{i}는 {j}나누어지지 않아 계속함')
+# 내꺼 다시 써보기
+# N = int(input())
+# numlist = list(map(int, input().split()))
+# for i in numlist :
+#     print(f'{i}를 판단중')
+#     if i == 1 :
+#         print(f'{i}가 1이므로 소수가 아님 전체 테스트 케이스에서 1을 뺌')
+#         N -= 1
+#     print(f'{i}가 1이 아니므로 재 판단중')
+#     for j in range(2,i) :
+#         print(f'2에서부터 {i-1}까지로 {i}를 나눠볼꺼임')
+#         if i%j == 0 :        
+#             print(f'{i}가 {j}로 나누어졋기때문에 케이스에서 1을 빼고 멈출꺼임')
+#             N -= 1
+#             print(f'현재 남은 테스트 케이스는 {N}번임')
+#             break
+#         else :
+#             print(f'{i}는 {j}나누어지지 않아 계속함')
 
-print(N)
+# print(N)
+
+# 2581 소수
+# m = int(input())
+# n = int(input())
+# numlist = []
+# for i in range(m,n+1) :
+#     numlist.append(i)
+# # print(f'숫자리스트는 다음과 같음 {numlist}')
+# for i in numlist[::-1] : #역순으로 판단함 앞에서부터 지워나갈시 i증가함에 따라 순서가 꼬임
+#     # print(f'{i}를 판단중')
+#     if i == 1 :
+#         numlist.remove(i)
+#         break
+#     for j in range(2,i) :
+#         # print(f'{i}를 {j}로 나눠볼꺼임')
+#         if i%j == 0 :
+#             # print(f'{i}가 {j}로 나누어져 제거하고 멈출꺼임')
+#             numlist.remove(i)
+#             # print(f'남은 숫자 리스트는 {numlist}임')
+#             break
+#         else :
+#             continue
+# # print(numlist)
+# if not numlist :
+#     print(-1)
+# else :
+#     print(sum(numlist))
+#     print(min(numlist))
