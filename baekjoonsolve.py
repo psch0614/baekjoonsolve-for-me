@@ -826,3 +826,26 @@
 # else :
 #     print(sum(numlist))
 #     print(min(numlist))
+
+# 11653
+# N = int(input())
+# i = 2
+# while N != 1 :
+#     if N%i == 0 :
+#         print(i)
+#         N = N/i
+#     else :
+#         i +=1
+# 다른사람 코드
+N = int(input())
+i = 2
+primetest = int(N**0.5)
+while i <= primetest :
+    while N%i == 0 :
+        print(i)
+        N = N//i
+    else :
+        i += 1
+if N > 1 :
+    print(N)
+
