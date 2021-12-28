@@ -837,15 +837,27 @@
 #     else :
 #         i +=1
 # 다른사람 코드
-N = int(input())
-i = 2
-primetest = int(N**0.5)
-while i <= primetest :
-    while N%i == 0 :
-        print(i)
-        N = N//i
-    else :
-        i += 1
-if N > 1 :
-    print(N)
+# N = int(input())
+# i = 2
+# primetest = int(N**0.5)
+# while i <= primetest :
+#     while N%i == 0 :
+#         print(i)
+#         N = N//i
+#     else :
+#         i += 1
+# if N > 1 :
+#     print(N)
 
+# 1929 소수구하기 아라토스테네스의 체
+a = list(map(int, input().split()))
+is_prime = [True for _ in range(a[1]+1)]
+is_prime[0] = False #i값을 그대로 가져오기 위해 i = 0 부정 즉 소수가 아님
+is_prime[1] = False #i값을 그대로 가져오기 위해 i = 1 부정 즉 소수가 아님
+for i in range(2, int(a[1]**0.5)+1) :
+    if is_prime[i] == True :
+        for j in range(i*2, a[1]+1, i) :
+            is_prime[j] = False
+primenum = [i for i, j in enumerate(is_prime) if i>=a[0] and j==True]
+for k in range(len(primenum)) :
+    print(primenum[k])
