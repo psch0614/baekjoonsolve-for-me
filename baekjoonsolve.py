@@ -827,7 +827,7 @@
 #     print(sum(numlist))
 #     print(min(numlist))
 
-# 11653
+# 11653 소인수 분해 --> 호제..법?
 # N = int(input())
 # i = 2
 # while N != 1 :
@@ -850,14 +850,116 @@
 #     print(N)
 
 # 1929 소수구하기 아라토스테네스의 체
-a = list(map(int, input().split()))
-is_prime = [True for _ in range(a[1]+1)]
-is_prime[0] = False #i값을 그대로 가져오기 위해 i = 0 부정 즉 소수가 아님
-is_prime[1] = False #i값을 그대로 가져오기 위해 i = 1 부정 즉 소수가 아님
-for i in range(2, int(a[1]**0.5)+1) :
-    if is_prime[i] == True :
-        for j in range(i*2, a[1]+1, i) :
-            is_prime[j] = False
-primenum = [i for i, j in enumerate(is_prime) if i>=a[0] and j==True]
-for k in range(len(primenum)) :
-    print(primenum[k])
+# a = list(map(int, input().split()))
+# is_prime = [True for _ in range(a[1]+1)]
+# is_prime[0] = False
+# is_prime[1] = False
+# for i in range(2, int(a[1]**0.5)+1) :
+#     if is_prime[i] == True :
+#         for j in range(i*2, a[1]+1, i) :
+#             is_prime[j] = False
+# primenum = [i for i, j in enumerate(is_prime) if i>=a[0] and j==True]
+# for k in range(len(primenum)) :
+#     print(primenum[k])
+
+# 4948 베르트랑 공준 3200ms 나옴 시벌;
+# while True :
+#     try :
+#         a = int(input())
+#         if a != 0 :
+#             is_prime = [True for _ in range((a*2)+1)]
+#             is_prime[0] = False #i값을 그대로 가져오기 위해 i = 0 부정 즉 소수가 아님
+#             is_prime[1] = False #i값을 그대로 가져오기 위해 i = 1 부정 즉 소수가 아님
+#             for i in range(2, int((2*a)**0.5)+1) :
+#                 if is_prime[i] == True :
+#                     for j in range(i*2, (2*a)+1, i) :
+#                         is_prime[j] = False
+#             primenum = [i for i, j in enumerate(is_prime) if i>a and j==True]
+#             print(len(primenum))
+#     except :
+#         break
+
+# 9020 골드 바흐의 추측 4<=n<=10,000
+# 내가 한거 망함 타임아웃 걸림 처음에 체로 거르는것에서 타임아웃 걸린것으로 판단됨
+# T = int(input())
+# is_prime = [False, False] + [True] * 9999
+# for i in range(2,int(10001**0.5)+1) :
+#     if is_prime[i] == True :
+#         for j in range(i*2, 10001, i) :
+#             is_prime[j] = False
+# primenum = [i for i, j in enumerate(is_prime) if i >=2 and j==True]
+# for k in range(T) :
+#     n = int(input())
+#     prelist = []
+#     halfn = n//2
+#     for l in range(len(primenum)) :
+#         if primenum[l] <= halfn :
+#             if n-primenum[l] in primenum :
+#                 prelist.append(primenum[l])
+#                 prelist.append((n-primenum[l]))
+#     print(prelist[-2],prelist[-1])
+
+# 다시 시작 입력된 수 n에 대하여 반절을 하고 그 숫자에 대해여 소수 구한뒤 판단
+# T = int(input())
+# for i in range(T) :
+#     n = int(input())
+#     is_prime = [False, False] + [True] * (n-1)
+#     for j in range(2, int(n**0.5)+1) :
+#         if is_prime[j] == True :
+#             for k in range(j*2, n+1, j) :
+#                 is_prime[k] = False
+#     primenum = [i for i, j in enumerate(is_prime) if i >=2 and j == True]
+#     print(f'현재 소수 리스트는 {primenum}임')
+#     for l in reversed(primenum) :
+#         if n-l in primenum :
+#             print(n-l, l)
+#             break
+
+
+# 다른 사람 코드 소수 구하는 것을 나누기법으로 실행
+# T = int(input())
+
+# def primenum(X) :
+#     if X == 1 :
+#         return False
+#     for i in range(2, int(X**0.5)+1) :
+#         if X%i == 0 :
+#             return False
+#     return True
+
+# for _ in range(T) :
+#     n = int(input())
+#     a = n//2
+#     b = n//2
+#     while True :
+#         if primenum(a) and primenum(b) :
+#             print(a,b)
+#             break
+#         else :
+#             a -= 1
+#             b += 1
+
+# 체법으로 변환 해야함 하다가 런함
+T = int(input())
+
+def primenum (x) :
+    if x == 1 :
+        return False
+    is_primenum = [False, False] + [True] * x
+    for i in range(2,int(x**0.5)+1) :
+        if is_primenum == True :
+            for j in range(i*2, x+1, i) :
+                is_primenum[j] = False
+    primenum = [i for i, j in enumerate(is_primenum) if i>=2 and j==True]
+
+for _ in range(T) :
+    a = int(input())
+    n = a//2
+    m = a//2
+    while True :
+        if primenum(n) and primenum(m) :
+            print(n,m)
+            break
+        else :
+            n -= 1
+            m += 1
