@@ -941,21 +941,32 @@
 
 # 체법으로 변환
 
-primenum = [False, False] + [True] * 9999
-for i in range(2, int(5000**0.5)+1) :
-    if primenum[i] == True :
-        for j in range(i*2, 10001, i) :
-            primenum[j] = False
-# print(primenum)
-T = int(input())
-for _ in range(T) :
-    a = int(input())
-    m = a//2
-    # n = a//2
-    while True :
-        if primenum[m] and primenum[a-m] :
-            print(m,a-m)
-            break
-        else :
-            m -=1
-            # n +=1
+# primenum = [False, False] + [True] * 9999
+# for i in range(2, int(5000**0.5)+1) :
+#     if primenum[i] == True :
+#         for j in range(i*2, 10001, i) :
+#             primenum[j] = False
+# # print(primenum)
+# T = int(input())
+# for _ in range(T) :
+#     a = int(input())
+#     m = a//2
+#     # n = a//2
+#     while True :
+#         if primenum[m] and primenum[a-m] :
+#             print(m,a-m)
+#             break
+#         else :
+#             m -=1
+#             # n +=1
+
+# 1085 직사각형에서 탈출 - 가장 가까운 변까지의 거리 도출
+x,y,w,h = list(map(int, input().split()))
+xw = w-x
+yh = h-y
+ract = [x,y,xw,yh]
+print(min(ract))
+
+#더 짧게
+x,y,w,h = list(map(int, input().split()))
+print(min(x,y,w-x,h-y)))
