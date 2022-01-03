@@ -1000,13 +1000,19 @@
 # print(cnt([x1,x2,x3]), cnt([y1,y2,y3]))
 
 #4153 직각삼각형
-while True :
-    a = list(map(int, input().split()))
-    max_a = max(a)
-    if sum(a) == 0 :
-        break
-    a.remove(max_a)
-    if a[0]**2 + a[1]**2 == max_a**2 :
-        print("right")
-    else :
-        print("wrong")
+# while True :
+#     a = list(map(int, input().split()))
+#     max_a = max(a)
+#     if sum(a) == 0 :
+#         break
+#     a.remove(max_a)
+#     if a[0]**2 + a[1]**2 == max_a**2 :
+#         print("right")
+#     else :
+#         print("wrong")
+
+#3053 택시 기하학 #택시 기하학 관련 이해 주소 https://m.blog.naver.com/alwaysneoi/100172516753
+import math
+r = int(input())
+print('%.6f' %(math.pi*r*r))
+print('%.6f' %(r*r*2))
