@@ -961,12 +961,41 @@
 #             # n +=1
 
 # 1085 직사각형에서 탈출 - 가장 가까운 변까지의 거리 도출
-x,y,w,h = list(map(int, input().split()))
-xw = w-x
-yh = h-y
-ract = [x,y,xw,yh]
-print(min(ract))
+# x,y,w,h = list(map(int, input().split()))
+# xw = w-x
+# yh = h-y
+# ract = [x,y,xw,yh]
+# print(min(ract))
 
-#더 짧게
-x,y,w,h = list(map(int, input().split()))
-print(min(x,y,w-x,h-y)))
+# #더 짧게
+# x,y,w,h = list(map(int, input().split()))
+# print(min(x,y,w-x,h-y))
+
+# 3009 네번째 점
+# 풀이 1 list화 하여 1개만 있는것 찾아 리턴
+x_list =[]
+y_list =[]
+for _ in range(3) :
+    x, y = map(int, input().split())
+    x_list.append(x)
+    y_list.append(y)
+for i in range(3) :
+    if x_list.count(x_list[i]) == 1 :
+        x = x_list[i]
+    if y_list.count(y_list[i]) == 1 :
+        y = y_list[i]
+print(x,y)
+
+#풀이2 비교하여 다른것 리턴
+def cnt(n) :
+    if n[2] == n[0] :
+        return n[1]
+    elif n[2] == n[1] :
+        return n[0]
+    else :
+        return n[2]
+x1, y1 = map(int, input().split())
+x2, y2 = map(int, input().split())
+x3, y3 = map(int, input().split())
+print(cnt([x1,x2,x3]), cnt([y1,y2,y3]))
+
