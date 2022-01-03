@@ -939,27 +939,23 @@
 #             a -= 1
 #             b += 1
 
-# 체법으로 변환 해야함 하다가 런함
+# 체법으로 변환
+
+primenum = [False, False] + [True] * 9999
+for i in range(2, int(5000**0.5)+1) :
+    if primenum[i] == True :
+        for j in range(i*2, 10001, i) :
+            primenum[j] = False
+# print(primenum)
 T = int(input())
-
-def primenum (x) :
-    if x == 1 :
-        return False
-    is_primenum = [False, False] + [True] * x
-    for i in range(2,int(x**0.5)+1) :
-        if is_primenum == True :
-            for j in range(i*2, x+1, i) :
-                is_primenum[j] = False
-    primenum = [i for i, j in enumerate(is_primenum) if i>=2 and j==True]
-
 for _ in range(T) :
     a = int(input())
-    n = a//2
     m = a//2
+    # n = a//2
     while True :
-        if primenum(n) and primenum(m) :
-            print(n,m)
+        if primenum[m] and primenum[a-m] :
+            print(m,a-m)
             break
         else :
-            n -= 1
-            m += 1
+            m -=1
+            # n +=1
