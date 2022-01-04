@@ -1018,36 +1018,44 @@
 # print('%.6f' %(r*r*2))
 
 #1002 터렛
-t = int(input())
-for _ in range(t) :
-    x1,y1,r1,x2,y2,r2 = map(int, input().split())
-    x_abs = max(x1,x2) - min(x1,x2)
-    y_abs = max(y1,y2) - min(y1,y2)
-    r_g = max(r1,r2)
-    r_l = min(r1,r2)
-    if x1==x2 and y1==y2 and r1==r2 : #일치할경우 1
-        print(-1)
-    elif x_abs**2 + y_abs**2 == (r1+r2)**2 : #외접할때 2
-        print(1)
-    elif (x_abs**2 + y_abs**2)**0.5 + r_l == r_g : #내접할때 3
-        print(1)
-    elif x_abs**2 + y_abs**2 > (r1+r2)**2 : #외부에 있고 안만날때 4
-        print(0)
-    elif (x_abs**2 + y_abs**2)**0.5 + r_l < r_g : #안에 있고 안만날때 5
-        print(0)
-    else :
-        print(2)
+# t = int(input())
+# for _ in range(t) :
+#     x1,y1,r1,x2,y2,r2 = map(int, input().split())
+#     x_abs = max(x1,x2) - min(x1,x2)
+#     y_abs = max(y1,y2) - min(y1,y2)
+#     r_g = max(r1,r2)
+#     r_l = min(r1,r2)
+#     if x1==x2 and y1==y2 and r1==r2 : #일치할경우 1
+#         print(-1)
+#     elif x_abs**2 + y_abs**2 == (r1+r2)**2 : #외접할때 2
+#         print(1)
+#     elif (x_abs**2 + y_abs**2)**0.5 + r_l == r_g : #내접할때 3
+#         print(1)
+#     elif x_abs**2 + y_abs**2 > (r1+r2)**2 : #외부에 있고 안만날때 4
+#         print(0)
+#     elif (x_abs**2 + y_abs**2)**0.5 + r_l < r_g : #안에 있고 안만날때 5
+#         print(0)
+#     else :
+#         print(2)
 
-t = int(input())
-def dis2(x1,x2,y1,y2) :
-    return ((x1-x2)**2 + (y1-y2)**2)
-for _ in range(t) :
-    x1,y1,r1,x2,y2,r2 = map(int, input().split())
-    if x1==x2 and y1==y2 and r1==r2 : #일치할경우 1
-        print(-1)
-    elif dis2(x1,x2,y1,y2) < (r1-r2)**2 or dis2(x1,x2,y1,y2) > (r1+r2)**2 :
-        print(0)
-    elif dis2(x1,x2,y1,y2) == (r1-r2)**2 or dis2(x1,x2,y1,y2) == (r1+r2)**2 :
-        print(1)
-    else :
-        print(2)
+# t = int(input())
+# def dis2(x1,x2,y1,y2) :
+#     return ((x1-x2)**2 + (y1-y2)**2)
+# for _ in range(t) :
+#     x1,y1,r1,x2,y2,r2 = map(int, input().split())
+#     if x1==x2 and y1==y2 and r1==r2 : #일치할경우 1
+#         print(-1)
+#     elif dis2(x1,x2,y1,y2) < (r1-r2)**2 or dis2(x1,x2,y1,y2) > (r1+r2)**2 :
+#         print(0)
+#     elif dis2(x1,x2,y1,y2) == (r1-r2)**2 or dis2(x1,x2,y1,y2) == (r1+r2)**2 :
+#         print(1)
+#     else :
+#         print(2)
+
+# 10872 팩토리얼 while로 풀기
+n = int(input())
+pre_n = 1
+while n != 0 :
+    pre_n = pre_n * n
+    n -=1
+print(pre_n)
