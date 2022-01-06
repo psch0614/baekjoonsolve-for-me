@@ -1052,10 +1052,17 @@
 #     else :
 #         print(2)
 
-# 10872 팩토리얼 while로 풀기
+# 10872 팩토리얼 재귀로 풀기
+# n = int(input())
+# pre_n = 1
+# while n != 0 :
+#     pre_n = pre_n * n
+#     n -=1
+# print(pre_n)
+
+# 10870 피보나치수5 재귀로 풀기
 n = int(input())
-pre_n = 1
-while n != 0 :
-    pre_n = pre_n * n
-    n -=1
-print(pre_n)
+pb = [0,1]
+for i in range(2,n+1) :
+    pb.append(pb[i-1]+pb[i-2])
+print(pb[n])
